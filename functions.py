@@ -32,3 +32,36 @@ def save_user(**userData): # using double * again takes multiple entries but wit
 
 
 save_user(id=345, name="Tushar Pandey", age = 31)
+
+message = "test"
+
+def funct():
+    global message# This is a way to update the global variable in the scope of a method -- IMP Bad Practice Avoid Global Variable .. And definetly avoid changing the global in other scope
+    message = "tushar"
+
+print(message)
+funct()
+print(message)
+
+def testFunct():
+    message = "Pandey"
+
+testFunct()
+
+print(message)# This still prints tushar as updated above in funct -- why ? because in testFunct - python expects this message variable to be a new variable shadowing the global message
+
+def fizz_buzz(input):
+    number = int(input)
+    if(number%15==0):
+        print("fizzbuzz")
+    elif(number%3==0):
+        print("fizz")
+    elif(number%5==0):
+        print("buzz")
+    else:
+        print(number)
+
+fizz_buzz(25)
+fizz_buzz(7)
+fizz_buzz(30)
+fizz_buzz(21)
